@@ -1,0 +1,46 @@
+<form (ngSubmit)="myForm.valid && onSubmit(myForm)" #myForm="ngForm">
+    <div>
+      Form submitted ? {{myForm.submitted}} <br>
+      Form valid ? {{myForm.valid}}<br>
+      Form invalid ? {{myForm.valid}}<br>
+    </div>
+    <!-- Firstname -->
+    <div>
+        <label for="firstname">Firstname</label>
+        <input name="firstname" type="text" [(ngModel)]="model.firstname" #firstname="ngModel" required minlength="3" maxlength="15">
+    </div>
+    <div *ngIf="bsubmit && firstname.errors">
+        <span *ngIf="firstname.errors.required"> Firstname is required</span>
+        <span *ngIf="firstname.errors?.minlength">Min length for firstname is 3</span>
+        <span *ngIf="firstname.errors?.maxlength">Max length for firstname is 15</span>
+    </div>
+    <!-- Lastname -->
+    <div>
+        <label for="lastname">Lastname</label>
+        <input name="lastname" type="text" [(ngModel)]="model.lastname" #lastname="ngModel" required minlength="3" maxlength="15">
+    </div>
+    <div *ngIf="bsubmit && lastname.errors">
+        <span *ngIf="lastname.errors.required"> Lastname is required</span>
+        <span *ngIf="lastname.errors?.minlength">Min length for lastname is 3</span>
+        <span *ngIf="lastname.errors?.maxlength">Max length for lastname is 15</span>
+    </div>
+    <!-- Mail -->
+    <div>
+        <label for="mail">Mail</label>
+        <input name="mail" type="email" [(ngModel)]="model.mail" #mail="ngModel" required />
+    </div>
+    <div *ngIf="mail.errors">
+        <span *ngIf="bsubmit && mail.errors?.required">Mail is required</span>
+    </div>
+    <!-- Password -->
+    <div>
+        <label for="password">Password</label>
+        <input name="password" type="text" [(ngModel)]="model.password" #password="ngModel" required>
+    </div>
+    <div *ngIf="password.errors">
+        <span *ngIf="bsubmit && password.errors.required">Password is required</span>
+    </div>
+    <!-- Submit -->
+    <button type="reset">reset</button>
+    <button type="submit">sign-in</button>
+  </form>

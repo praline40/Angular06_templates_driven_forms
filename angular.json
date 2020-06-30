@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "myFormAppli"
+    }
+  },
+  "defaultProject": "myFormAppli",
+  "cli": {
+    "analytics": false
+  }
 }
